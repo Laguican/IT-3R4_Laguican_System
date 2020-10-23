@@ -20,4 +20,9 @@ $router->get('/', function () use ($router) {
 // unsecure routes
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('/users',['uses' => 'UserController@getUsers']);
+    $router->get('/users/{id}',['uses' => 'UserController@getUser']);
+    $router->post('/users/add',['uses' => 'UserController@addUsers']);
+    $router->put('/users/update/{id}',['uses' => 'UserController@updateUsers']);
+    $router->delete('/users/delete/{id}',['uses' => 'UserController@deleteUsers']);
+    $router->post('/users/login',['uses' => 'UserController@loginUsers']);
     });
